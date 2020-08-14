@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 
 import Home from './components/home'
@@ -8,8 +9,14 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <Home />
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path='/'>
+            <Home />      
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

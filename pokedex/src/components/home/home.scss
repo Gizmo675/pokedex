@@ -1,3 +1,23 @@
-.home {
-  background: red;
+.pokemonList {
+  display: flex;
+  width: 70vw;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  padding: 1em;
+}
+.card {
+  width: 25vw;
+  text-align: center;
+  color: white;
+  padding: 2em;
+}
+li{
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: white;
 }
