@@ -4,6 +4,7 @@ import './App.css';
 
 import Home from './components/home'
 import NavBar from './components/navbar'
+import Pokemon from './components/pokemon';
 
 function App() {
 
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />      
+          </Route>
+          <Route path='/'>
+            <Pokemon />
           </Route>
         </Switch>
       </BrowserRouter>
