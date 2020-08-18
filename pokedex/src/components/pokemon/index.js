@@ -5,7 +5,7 @@ import { PokeContext } from '../../App';
 
 const Pokemon = () => {
 
-  const { state } = useContext(PokeContext)
+  // const { state } = useContext(PokeContext)
 
   return (
     <div className="pokemon-details">
