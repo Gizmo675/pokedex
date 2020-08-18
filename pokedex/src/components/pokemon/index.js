@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './pokemon.scss'
+import { PokeContext } from '../../App';
 
 const Pokemon = () => {
+
+  const { state } = useContext(PokeContext)
 
   return (
     <div className="pokemon-details">

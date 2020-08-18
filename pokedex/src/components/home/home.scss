@@ -15,9 +15,11 @@
 li{
   text-decoration: none;
   list-style-type: none;
-  color: white!important;
+  font-size: 2em;
 }
 a:hover, a:focus, a:active {
   text-decoration: none;
-  color: white;
+}
+a{
+  color: white !important;
 }
