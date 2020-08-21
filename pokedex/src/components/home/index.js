@@ -10,7 +10,7 @@ const Home = () => {
   const [pokemon, SetPokemon] = useState([])
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=2')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=50')
       .then((response)=>{
         return (response).json()
       }).then(result => {

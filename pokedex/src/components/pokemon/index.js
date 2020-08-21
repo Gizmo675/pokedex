@@ -21,7 +21,7 @@ const Pokemon = () => {
   return (
     <div className="pokemon-details">
       {thisPokemon ? 
-      <div className='card teal lighten-2'>
+      <div>
         <img 
           src={`https://pokeres.bastionbot.org/images/pokemon/${thisPokemon.id}.png`}
           alt={thisPokemon.name}
