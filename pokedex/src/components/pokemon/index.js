@@ -5,7 +5,7 @@ import PokemonContext from '../../contexts/PokemonContext';
 
 const Pokemon = () => {
 
-  const { pokemonData, SetPokemonData } = useContext(PokemonContext)
+  const { pokemonData } = useContext(PokemonContext)
 
   const [ thisPokemon, SetThisPokemon ] =useState()
 
@@ -20,11 +20,31 @@ const Pokemon = () => {
 
   return (
     <div className="pokemon-details">
-      <h1>
-        {pokemonData}
-      </h1>
-      <button onClick={console.log(thisPokemon)}>
-        Changer de nom
+      {thisPokemon ? 
+      <div className='card teal lighten-2'>
+        <img 
+          src={`https://pokeres.bastionbot.org/images/pokemon/${thisPokemon.id}.png`}
+          alt={thisPokemon.name}
+          />
+        <h1>
+          Nom: {thisPokemon.name}
+        </h1>
+        <h2>
+          Poids: {thisPokemon.weight} kg
+        </h2>
+        <h2>
+          Taille : {thisPokemon.height} pouces
+        </h2>
+        {/* <h2>
+          Capacité : {thisPokemon.abilities.map(ability => {
+            <ul>{ability.name}</ul>
+          })}
+        </h2> */}
+      </div>
+      : <h1>Chargement...</h1>}
+
+      <button onClick={()=>{console.log(pokemonData)}}>
+        Afficher details
       </button>
     </div>
   )

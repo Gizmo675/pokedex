@@ -12,7 +12,7 @@ import { PokemonContext } from './contexts/PokemonContext';
 
 function App() {
 
-  const [pokemonData, SetPokemonData] = useState('Je suis le pokemon')
+  const [pokemonData, SetPokemonData] = useState()
 
   return (
     // <div className="App">
