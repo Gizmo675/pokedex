@@ -15,7 +15,7 @@ const Home = () => {
         return (response).json()
       }).then(result => {
         SetPokemon(result.results)
-        // console.log(result.results)
+        console.log(result.results)
       })
   }, [])
 
