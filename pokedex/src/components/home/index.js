@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom'
 import './home.scss'
+import { PokemonContext } from '../../contexts/PokemonContext';
 
 const Home = () => {
 
+  const { pokemonData, SetPokemonData } = useContext(PokemonContext)
+
   const [pokemon, SetPokemon] = useState([])
-  const [onePokemon, SetOnePokemon] = useState([])
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
@@ -23,13 +25,14 @@ const Home = () => {
         
         return (
           <div className='card teal lighten-2' key={poke.url}>
-            <h1 onClick={() => SetOnePokemon(poke.url)}>
+            <h1>
               <Link
                 to={poke.name}              
               >
                 {poke.name}
               </Link>
             </h1>
+            <h2 onClick={() => {SetPokemonData('Je suis gizmo')}}>{pokemonData}</h2>
           </div>
         )
       })}

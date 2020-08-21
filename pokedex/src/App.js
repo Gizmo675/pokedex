@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -7,20 +7,18 @@ import Home from './components/home'
 import NavBar from './components/navbar'
 import Pokemon from './components/pokemon';
 
-// Reducers
-import { initialState, pokemonReducer } from './reducers/pokemonReducer'
-import PokemonContextProvider from './contexts/PokemonContext';
-
-export const PokeContext = createContext()
+// Context
+import { PokemonContext } from './contexts/PokemonContext';
 
 function App() {
-  const [state, dispatch] = useReducer(pokemonReducer, initialState)
+
+  const [pokemonData, SetPokemonData] = useState('Je suis le pokemon')
 
   return (
-    <div className="App">
-      <PokemonContextProvider>
+    // <div className="App">
         <BrowserRouter>
           <NavBar />
+          <PokemonContext.Provider value={{ pokemonData, SetPokemonData }}>
           <Switch>
             <Route exact path='/'>
               <Home />      
@@ -29,10 +27,9 @@ function App() {
               <Pokemon />
             </Route>
           </Switch>
+          </PokemonContext.Provider>
         </BrowserRouter>
-      </PokemonContextProvider>
-
-    </div>
+    // </div>
   );
 }
 

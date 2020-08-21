@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
 
 import './pokemon.scss'
-import { PokeContext } from '../../App';
+import PokemonContext from '../../contexts/PokemonContext';
 
 const Pokemon = () => {
 
-  // const { state } = useContext(PokeContext)
+const { pokemonData, SetPokemonData } = useContext(PokemonContext)
 
   return (
     <div className="pokemon-details">
       <h1>
-        Bonjour, je suis le pokemon
+        {pokemonData}
       </h1>
+      <button onClick={()=>{SetPokemonData('je suis gizmo')}}>
+        Changer de nom
+      </button>
     </div>
   )
 }
