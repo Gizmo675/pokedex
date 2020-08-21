@@ -7,15 +7,15 @@ const Pokemon = () => {
   const { pokemonData } = useContext(PokemonContext)
 
   const [ thisPokemon, SetThisPokemon ] = useState()
-  const [frenchPokemon, SetFrenchPokemon] = useState(null)
+  const [ frenchPokemon, SetFrenchPokemon ] = useState(null)
 
   useEffect(() => {
     fetch(pokemonData)
     .then((res)=>{return (res).json()})
     .then(result => {
       SetThisPokemon(result)
+      console.log('jai les infos sur le pokemone en question')
     })
-    // .then(frenchName())
   }, [])
 
   const frenchName = ()=>{
