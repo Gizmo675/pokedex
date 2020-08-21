@@ -10,7 +10,7 @@ const Home = () => {
   const [pokemon, SetPokemon] = useState([])
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=2')
       .then((response)=>{
         return (response).json()
       }).then(result => {
@@ -25,14 +25,14 @@ const Home = () => {
         
         return (
           <div className='card teal lighten-2' key={poke.url}>
-            <h1>
+            <h1 onClick={() => {SetPokemonData(poke.url)}}>
               <Link
                 to={poke.name}              
               >
                 {poke.name}
               </Link>
             </h1>
-            <h2 onClick={() => {SetPokemonData('Je suis gizmo')}}>{pokemonData}</h2>
+            <h2>{pokemonData}</h2>
           </div>
         )
       })}
