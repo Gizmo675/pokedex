@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -13,12 +13,22 @@ import { PokemonContext } from './contexts/PokemonContext';
 function App() {
 
   const [pokemonData, SetPokemonData] = useState()
+  const [pokemon, SetPokemon] = useState([])
+
+  useEffect(() => {
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+      .then((response)=>{
+        return (response).json()
+      }).then(result => {
+        SetPokemon(result.results)
+      })
+  }, [])
 
   return (
     // <div className="App">
         <BrowserRouter>
           <NavBar />
-          <PokemonContext.Provider value={{ pokemonData, SetPokemonData }}>
+          <PokemonContext.Provider value={{ pokemonData, SetPokemonData, pokemon, SetPokemon }}>
           <Switch>
             <Route exact path='/'>
               <Home />      
