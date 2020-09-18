@@ -66,10 +66,9 @@ function App() {
   }, [])
 
   return (
-    // <div className="App">
         <BrowserRouter>
           <NavBar />
-          <PokemonContext.Provider value={{ pokemonData, SetPokemonData, pokemon, SetPokemon }}>
+          <PokemonContext.Provider value={{ pokemonData, SetPokemonData, pokemon, SetPokemon, allPokemon }}>
           <Switch>
             <Route exact path='/'>
               <Home />      
@@ -80,7 +79,6 @@ function App() {
           </Switch>
           </PokemonContext.Provider>
         </BrowserRouter>
-    // </div>
   );
 }
 

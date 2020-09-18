@@ -5,19 +5,22 @@ import { PokemonContext } from '../../contexts/PokemonContext';
 
 const Home = () => {
 
-  const { pokemonData, SetPokemonData, pokemon } = useContext(PokemonContext)
+  const { allPokemon, SetPokemonData, pokemon } = useContext(PokemonContext)
 
   return (
     <div className='pokemonList'>
-      {pokemon.map(poke => {
- 
+      {allPokemon.map(poke => {
         return (
-          <div className='card teal lighten-2' key={poke.url}>
+          <div className='card teal lighten-2' key={poke.name}>
             <h1 onClick={() => {SetPokemonData(poke.url)}}>
               <Link to={poke.name}>
                 {poke.name}
               </Link>
             </h1>
+            <img href={poke.picture} alt={poke.name} />
+            <h3>
+              type: {poke.type}
+            </h3>
           </div>
         )
       })}
