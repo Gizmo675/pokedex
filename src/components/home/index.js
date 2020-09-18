@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom'
 import './home.scss'
 import { PokemonContext } from '../../contexts/PokemonContext';
@@ -6,7 +6,6 @@ import { PokemonContext } from '../../contexts/PokemonContext';
 const Home = () => {
 
   const { allPokemon } = useContext(PokemonContext)
-  const [active, setActive] = useState(false)
   const [searchPokemon, setSearchPokemon] = useState('')
 
   function search(name) {
@@ -15,13 +14,12 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        <form className={active ? "search-poke-active" : "search-poke"}>
+      <div id='searching'>
+        <form className="search-poke">
           <label htmlFor="search">Tu cherche un pokemon ?</label>
           <input
             type="text"
             id="search"
-            // onInput={!setActive}s
             onChange={(event) => setSearchPokemon(event.target.value)}
             value={searchPokemon}
             ></input>
