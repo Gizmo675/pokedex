@@ -69,8 +69,8 @@ function App() {
 
   return (
         <BrowserRouter>
-          <NavBar />
           <PokemonContext.Provider value={{ allPokemon }}>
+          <NavBar />
           <Switch>
             <Route exact path='/'>
               <Home />      

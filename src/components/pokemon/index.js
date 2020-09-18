@@ -4,13 +4,13 @@ import PokemonContext from '../../contexts/PokemonContext';
 
 const Pokemon = () => {
 
-  const { pokemonData } = useContext(PokemonContext)
+  const { allPokemon } = useContext(PokemonContext)
 
   const [ thisPokemon, SetThisPokemon ] = useState()
   const [ frenchPokemon, SetFrenchPokemon ] = useState(null)
 
   useEffect(() => {
-    fetch(pokemonData)
+    fetch(allPokemon)
     .then((res)=>{return (res).json()})
     .then(result => {
       SetThisPokemon(result)
