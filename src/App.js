@@ -12,8 +12,6 @@ import { PokemonContext } from './contexts/PokemonContext';
 
 function App() {
 
-  const [pokemonData, SetPokemonData] = useState()
-  const [pokemon, SetPokemon] = useState([])
   const [allPokemon, SetAllPokemon] = useState([])
 
   // Je recupere la liste des 151 premiers pokemon
@@ -68,7 +66,7 @@ function App() {
   return (
         <BrowserRouter>
           <NavBar />
-          <PokemonContext.Provider value={{ pokemonData, SetPokemonData, pokemon, SetPokemon, allPokemon }}>
+          <PokemonContext.Provider value={{ allPokemon }}>
           <Switch>
             <Route exact path='/'>
               <Home />      
