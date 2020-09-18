@@ -36,16 +36,19 @@ function App() {
     const url = pokemon.url;
     // Je stock le nom du pokemon
     const name = pokemon.name;
+
     // Je requete l'url de chez pokemon pour avoir les infos de chaque pokemon
     fetch(url)
     .then(response => response.json())
     .then((data) => {
+      // console.log(data)
       
       // Je recupere la photo de chaque pokemon
       fullPokemon.picture = data.sprites.front_default;
       // Je recupere le type de chaque pokemon
       fullPokemon.type = data.types[0].type.name;
-      // console.log(fullPokemon)
+      // Je recupere l'identifiant de chaque pokemon
+      fullPokemon.id = data.id;
 
       // Je recupere les noms francais des pokemons
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
@@ -55,6 +58,7 @@ function App() {
         fullPokemon.name = frenchName.names[4].name
         // Je pousse dans le state les infos du pokemon actuel en preservant les infos des pokemons precedent
         SetAllPokemon(allPokemon => [...allPokemon, fullPokemon])
+
       })
     })
   }

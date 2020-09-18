@@ -11,7 +11,7 @@ const Home = () => {
     <div className='pokemonList'>
       {allPokemon.map(poke => {
         return (
-          <div className='card teal lighten-2' key={poke.name}>
+          <div className={`card ${poke.type}`} key={poke.name}>
             <h1>
               <Link to={poke.name}>
                 {poke.name}
