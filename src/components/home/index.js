@@ -17,10 +17,8 @@ const Home = () => {
                 {poke.name}
               </Link>
             </h1>
-            <img href={poke.picture} alt={poke.name} />
-            <h3>
-              type: {poke.type}
-            </h3>
+            <img src={poke.picture} alt={poke.name} />
+            <p>{poke.id}</p>
           </div>
         )
       })}
