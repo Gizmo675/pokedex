@@ -5,3 +5,33 @@
   font-size: 2em;
   color: white;
 }
+.search-poke {
+  width: 50%;
+  margin: auto;
+  position: relative;
+  display: flex;
+}
+.search-poke input {
+  font-size: 1em;
+  color: white;
+}
+.search-poke label {
+  font-size: 1em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-out;
+  padding-left: 0.5em;
+}
+.search-poke button {
+  padding: 0.2em;
+  background: dimgrey;
+  color: black;
+  border: none;
+  border-radius: 10%;
+  margin-left: 1em;
+}
+.search-poke:focus-within label, .search-poke.active label {
+  top: -0.5em;
+  padding-left: 0.2em;
+}
