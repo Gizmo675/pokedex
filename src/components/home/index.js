@@ -30,11 +30,13 @@ const Home = () => {
         {search(allPokemon).map((poke) => {
           return (
             <div className={`card ${poke.type}`} key={poke.name}>
-              <h1>
-                <Link to={poke.name}>{poke.name}</Link>
-              </h1>
-              <img src={poke.picture} alt={poke.name} />
-              <p style={{color:'black'}}>ID: {poke.id}</p>
+              <div id='container'>
+                <h1>
+                  <Link to={poke.name}>{poke.name}</Link>
+                </h1>
+                <img src={poke.picture} alt={poke.name} />
+                <p style={{color:'black'}}>ID: {poke.id}</p>
+              </div>
             </div>
           );
         })}
