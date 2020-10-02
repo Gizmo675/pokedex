@@ -1,59 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './pokemon.scss'
 import PokemonContext from '../../contexts/PokemonContext';
 
 const Pokemon = () => {
 
-  const { allPokemon } = useContext(PokemonContext)
-
-  const [ thisPokemon, SetThisPokemon ] = useState()
-  const [ frenchPokemon, SetFrenchPokemon ] = useState(null)
-
-  useEffect(() => {
-    fetch(allPokemon)
-    .then((res)=>{return (res).json()})
-    .then(result => {
-      SetThisPokemon(result)
-      console.log('jai les infos sur le pokemone en question')
-    })
-  }, [])
-
-  const frenchName = ()=>{
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${thisPokemon.id}`)
-    .then((response)=>{return (response).json()})
-    .then(result=>{
-      SetFrenchPokemon(result.names[4].name)
-    })
-  }
+  const { allPokemon, onePokemon } = useContext(PokemonContext)
 
   return (
     <div className="pokemon-details">
-      {thisPokemon ? 
+      {onePokemon 
+      ?
       <div>
+        <h1>{onePokemon.name}</h1>
         <img 
-          src={`https://pokeres.bastionbot.org/images/pokemon/${thisPokemon.id}.png`}
-          alt={thisPokemon.name}
+          src={`https://pokeres.bastionbot.org/images/pokemon/${onePokemon.id}.png`}
+          alt={onePokemon.name}
           />
-        <h1>
-          Nom: {frenchPokemon ? frenchPokemon : thisPokemon.name}
-        </h1>
-        <h2>
-          Poids: {thisPokemon.weight} kg
-        </h2>
-        <h2>
-          Taille : {thisPokemon.height} pouces
-        </h2>
       </div>
-      : <h1>Chargement...</h1>
-      }
-      <button 
-        onClick={()=>{console.log(thisPokemon)}}
-      >
-        Afficher details
-      </button>
-      <button onClick={()=>frenchName()}>
-        Nom francais
-      </button>
+      :
+        <h1>Chargement...</h1> 
+       }
     </div>
   )
 }

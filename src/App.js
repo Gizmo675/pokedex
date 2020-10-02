@@ -13,6 +13,7 @@ import { PokemonContext } from './contexts/PokemonContext';
 function App() {
 
   const [allPokemon, SetAllPokemon] = useState([])
+  const [onePokemon, SetOnePokemon] = useState({})
 
   // Je recupere la liste des 151 premiers pokemon
   function pokemonList() {
@@ -22,9 +23,9 @@ function App() {
         return response.json();
       })
       .then((allPokemon) => {
-        // Je boucle sur la liste des pokemons
+        // Pour chaque pokemon de la list allPokemon j'execute la methode fetchPokemonComplet
         allPokemon.results.map((pokemon) => {
-          return fetchPokemonComplet(pokemon);
+          return fetchPokemonComplet(pokemon)
         });
       });
   }
@@ -58,7 +59,6 @@ function App() {
         fullPokemon.name = frenchName.names[4].name
         // Je pousse dans le state les infos du pokemon actuel en preservant les infos des pokemons precedent
         SetAllPokemon(allPokemon => [...allPokemon, fullPokemon])
-
       })
     })
   }
@@ -69,7 +69,13 @@ function App() {
 
   return (
         <BrowserRouter>
-          <PokemonContext.Provider value={{ allPokemon }}>
+          <PokemonContext.Provider 
+          value={{ 
+            allPokemon,
+            SetAllPokemon,
+            onePokemon,
+            SetOnePokemon 
+          }}>
           <NavBar />
           <Switch>
             <Route exact path='/'>
