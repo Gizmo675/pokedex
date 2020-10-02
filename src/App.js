@@ -50,12 +50,16 @@ function App() {
       fullPokemon.type = data.types[0].type.name;
       // Je recupere l'identifiant de chaque pokemon
       fullPokemon.id = data.id;
+      // Je recupere le poid de chaque pokemon
+      fullPokemon.weight = data.weight
+      // Je recupere la taille de chaque pokemon
+      fullPokemon.height = data.height
 
       // Je recupere les noms francais des pokemons
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
       .then(response => response.json())
       .then((frenchName) => {
-        // console.log(frenchName.names[4])
+        // console.log(frenchName)
         fullPokemon.name = frenchName.names[4].name
         // Je pousse dans le state les infos du pokemon actuel en preservant les infos des pokemons precedent
         SetAllPokemon(allPokemon => [...allPokemon, fullPokemon])

@@ -17,7 +17,6 @@ const Home = () => {
 
   function pokemonDetails(pokemon) {
     SetOnePokemon(pokemon)
-    console.log(pokemon)
   }
 
   return (

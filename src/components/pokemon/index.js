@@ -4,7 +4,7 @@ import PokemonContext from '../../contexts/PokemonContext';
 
 const Pokemon = () => {
 
-  const { allPokemon, onePokemon } = useContext(PokemonContext)
+  const { onePokemon } = useContext(PokemonContext)
 
   return (
     <div className="pokemon-details">
@@ -16,6 +16,8 @@ const Pokemon = () => {
           src={`https://pokeres.bastionbot.org/images/pokemon/${onePokemon.id}.png`}
           alt={onePokemon.name}
           />
+        <h2>Poids : {onePokemon.weight} Kg</h2>
+        <h2>Taille : {onePokemon.height} cm</h2>
       </div>
       :
         <h1>Chargement...</h1> 
